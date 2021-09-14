@@ -49,6 +49,7 @@ export class FormComponent {
   }
 
   onSubmitForm() {
+    if (this.signupForm.invalid) return;
     console.log(this.signupForm.value);
     this.signupForm.reset();
   }

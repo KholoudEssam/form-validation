@@ -1,0 +1,13 @@
+<div class="form-control">
+  <label [for]="label"> {{ label }} </label>
+  <input [id]="label" [type]="inputType" [formControl]="control" />
+  <div class="error" *ngIf="!control?.valid && control?.touched">
+    <span *ngIf="control?.errors?.required"> {{ label }} is required!</span>
+    <span *ngIf="control?.errors?.pattern"> Please enter a valid {{ label }} ! </span>
+    <span *ngIf="control?.errors?.minlength">
+      You entered {{ control?.errors?.minlength.actualLength }} but the minimum required length is
+      {{ control?.errors?.minlength.requiredLength }} !
+    </span>
+    <span *ngIf="control?.errors?.email">Please enter valid email!</span>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  width: 60%;
+
+  label {
+    margin: 10px 0;
+  }
+  input {
+    height: 25px;
+    border: 1px solid gray;
+    border-radius: 3px;
+
+    &.ng-invalid.ng-touched {
+      border: 1px solid #ff2626;
+    }
+  }
+
+  button {
+    height: 35px;
+    margin-top: 5px;
+    font-size: 16px;
+    &:enabled {
+      background: #ff2626;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .form-control {
+    width: 80%;
+  }
+}

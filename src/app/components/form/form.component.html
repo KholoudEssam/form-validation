@@ -2,22 +2,44 @@
   <div class="form-control">
     <label for="name">Name</label>
     <input id="name" type="text" formControlName="name" />
+    <div class="error" *ngIf="!name?.valid && name?.touched">
+      <span *ngIf="name?.errors?.required"> Name is required</span>
+      <span *ngIf="name?.errors?.pattern"> Please enter a valid name</span>
+      <span *ngIf="name?.errors?.minlength">
+        You entered {{ name?.errors?.minlength.actualLength }} but the minimum required length is
+        {{ name?.errors?.minlength.requiredLength }}
+      </span>
+    </div>
   </div>
   <div class="form-control">
     <label for="email">Email</label>
     <input id="email" type="email" formControlName="email" />
+    <div class="error" *ngIf="!email?.valid && email?.touched">
+      <span *ngIf="email?.errors?.required"> Email is required</span>
+      <span *ngIf="email?.errors?.email">Please enter valid email</span>
+    </div>
   </div>
   <div class="form-control">
     <label for="password">Password</label>
     <input id="password" type="password" formControlName="password" />
+    <div class="error" *ngIf="!password?.valid && password?.touched">
+      <span *ngIf="password?.errors?.required">Password is required</span>
+      <span *ngIf="password?.errors?.minlength">
+        You entered {{ password?.errors?.minlength.actualLength }} but the minimum required length
+        is
+        {{ password?.errors?.minlength.requiredLength }}
+      </span>
+    </div>
   </div>
   <div class="form-control">
     <label for="confirmPassword">Confirm Password</label>
-    <input
-      id="confirmPassword"
-      type="password"
-      formControlName="confirmPassword"
-    />
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" />
+    <div class="error" *ngIf="!confirmPassword?.valid && confirmPassword?.touched">
+      <span *ngIf="confirmPassword?.errors?.required"> Confirm password is required</span>
+    </div>
+    <div class="error" *ngIf="signupForm?.errors?.isNotMatched">
+      <span> Password and Confirm password are not matched! </span>
+    </div>
   </div>
   <div class="form-control">
     <button type="submit" [disabled]="!signupForm.valid">Submit</button>

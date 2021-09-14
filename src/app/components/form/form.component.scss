@@ -37,6 +37,13 @@
   }
 }
 
+.error span {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #ff2626;
+}
+
 @media (max-width: 720px) {
   .form-control {
     width: 80%;
